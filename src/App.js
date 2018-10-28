@@ -1,28 +1,85 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import logo from './flink-logo.png';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
+import ListGroup from 'react-bootstrap/lib/ListGroup';
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faTachometerAlt, faTasks, faCheckCircle, faSitemap, faServer, faUpload} from '@fortawesome/free-solid-svg-icons'
+import OverviewDashboard from './OverviewDashboard'
+
+library.add(faTachometerAlt)
+library.add(faTasks)
+library.add(faCheckCircle)
+library.add(faSitemap)
+library.add(faServer)
+library.add(faUpload)
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<div id="sidebar">
+					<Navbar id="sidebar-navbar" bg="dark" variant="dark">
+						<Navbar.Brand href="#home">
+							<img
+								alt=""
+								src={logo}
+								width="30"
+								height="30"
+								className="d-inline-block align-top"
+							/>
+							&nbsp;&nbsp;&nbsp;Apache Flink
+						</Navbar.Brand>
+					</Navbar>
+					<Navbar bg="dark" variant="dark">
+						<ListGroup defaultActiveKey="#link1">
+							<ListGroup.Item variant="dark" action href="#link1">
+								<FontAwesomeIcon icon="tachometer-alt" className="fa-fw"/>&nbsp;Overview
+							</ListGroup.Item>
+							<ListGroup.Item variant="dark" action href="#link2">
+								<FontAwesomeIcon icon="tasks" className="fa-fw"/>&nbsp;Running&nbsp;Jobs
+							</ListGroup.Item>
+							<ListGroup.Item variant="dark" action href="#link3">
+								<FontAwesomeIcon icon="check-circle" className="fa-fw"/>&nbsp;Completed&nbsp;Jobs
+							</ListGroup.Item>
+							<ListGroup.Item variant="dark" action href="#link4">
+								<FontAwesomeIcon icon="sitemap" className="fa-fw"/>&nbsp;Task&nbsp;Managers
+							</ListGroup.Item>
+							<ListGroup.Item variant="dark" action href="#link5">
+								<FontAwesomeIcon icon="server" className="fa-fw"/>&nbsp;Job&nbsp;Manager
+							</ListGroup.Item>
+							<ListGroup.Item variant="dark" action href="#link6">
+								<FontAwesomeIcon icon="upload" className="fa-fw"/>&nbsp;Submit new Job
+							</ListGroup.Item>
+						</ListGroup>
+					</Navbar>
+					<Navbar bg="dark" variant="dark" id="filler-sidebar">
+
+					</Navbar>
+				</div>
+				<div id="content">
+					<Navbar id="overview-navbar" bg="light" variant="light">
+						<Nav variant="secondary">
+							<Nav.Item>
+								Overview
+							</Nav.Item>
+							<Nav.Item>
+								Version: 1.X.0
+							</Nav.Item>
+							<Nav.Item>
+								Commit: abc1234
+							</Nav.Item>
+
+						</Nav>
+					</Navbar>
+					<OverviewDashboard />
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;
