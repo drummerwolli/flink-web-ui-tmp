@@ -8,6 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import OverviewDashboard from './OverviewDashboard'
 import RunningJobsOverviewDashboard from './RunningJobsOverviewDashboard'
 import NotRunningJobsOverviewDashboard from './NotRunningJobsOverviewDashboard'
+import TaskManagerOverviewDashboard from './TaskManagerOverviewDashboard'
 import DashboardHeaderContainer from "./container/DashboardHeaderContainer";
 import { Route, Router } from 'react-router-dom';
 import history from './history';
@@ -40,7 +41,7 @@ class App extends Component {
 							<ListGroup.Item variant="dark" action onClick={() => history.push('/completed-jobs')}>
 								<FontAwesomeIcon icon="check-circle" className="fa-fw"/>&nbsp;Completed&nbsp;Jobs
 							</ListGroup.Item>
-							<ListGroup.Item variant="dark" action href="#link4">
+							<ListGroup.Item variant="dark" action onClick={() => history.push('/taskmanagers')}>
 								<FontAwesomeIcon icon="sitemap" className="fa-fw"/>&nbsp;Task&nbsp;Managers
 							</ListGroup.Item>
 							<ListGroup.Item variant="dark" action href="#link5">
@@ -62,6 +63,7 @@ class App extends Component {
 							<Route exact path="/" render={() => <OverviewDashboard />} />
 							<Route exact path="/running-jobs" render={() => <RunningJobsOverviewDashboard />} />
 							<Route exact path="/completed-jobs" render={() => <NotRunningJobsOverviewDashboard />} />
+							<Route exact path="/taskmanagers" render={() => <TaskManagerOverviewDashboard />} />
 						</div>
 					</Router>
 				</div>

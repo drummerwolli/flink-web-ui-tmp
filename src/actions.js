@@ -8,7 +8,7 @@ export const REQUEST_TASK_MANAGERS = 'REQUEST_TASK_MANAGERS';
 export const RECEIVE_TASK_MANAGERS = 'RECEIVE_TASK_MANAGERS';
 export const FETCH_TASK_MANAGERS_FAILED = 'FETCH_TASK_MANAGERS_FAILED';
 
-const baseUrl = 'http://172.31.140.204:8081'
+const baseUrl = 'http://172.31.128.231:8081'
 
 export function requestJobs() {
 	return {type: REQUEST_JOBS};

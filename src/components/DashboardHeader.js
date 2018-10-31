@@ -7,7 +7,7 @@ const DashboardHeader = ({clusterInfo}) => (
 	<Navbar id="overview-navbar" bg="light" variant="light">
 		<Nav variant="secondary">
 			<Nav.Item>
-				Overview
+				Dashboard
 			</Nav.Item>
 			<Nav.Item>
 				Version: {clusterInfo.flinkVersion}
