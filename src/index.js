@@ -5,10 +5,19 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers';
-import {fetchTaskManagers, fetchJobs} from './actions';
+import {fetchTaskManagers, fetchJobs, fetchClusterInfo} from './actions';
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faTachometerAlt, faTasks, faCheckCircle, faSitemap, faServer, faUpload} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faTachometerAlt)
+library.add(faTasks)
+library.add(faCheckCircle)
+library.add(faSitemap)
+library.add(faServer)
+library.add(faUpload)
 
 const loggerMiddleware = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -20,19 +29,12 @@ const store = createStore(
 	))
 )
 
-// Every time the state changes, log it
-// Note that subscribe() returns a function for unregistering the listener
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
-
-// Dispatch some actions
-// store.dispatch(requestJobs());
-
-store.dispatch(fetchJobs())
-store.dispatch(fetchTaskManagers())
-// store.dispatch(fetchTaskManagers('learn about actions'));
-// ​
-// Stop listening to state updates
-unsubscribe();
+// Dispatch actions
+setInterval(() => {
+	store.dispatch(fetchJobs())
+	store.dispatch(fetchTaskManagers())
+	store.dispatch(fetchClusterInfo())
+}, 5000)
 
 ReactDOM.render(
 	<Provider store={store}>

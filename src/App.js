@@ -3,19 +3,10 @@ import logo from './flink-logo.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from 'react-bootstrap/lib/Navbar';
-import Nav from 'react-bootstrap/lib/Nav';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
-import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTachometerAlt, faTasks, faCheckCircle, faSitemap, faServer, faUpload} from '@fortawesome/free-solid-svg-icons'
 import OverviewDashboard from './OverviewDashboard'
-
-library.add(faTachometerAlt)
-library.add(faTasks)
-library.add(faCheckCircle)
-library.add(faSitemap)
-library.add(faServer)
-library.add(faUpload)
+import DashboardHeaderContainer from "./container/DashboardHeaderContainer";
 
 class App extends Component {
 	render() {
@@ -61,20 +52,7 @@ class App extends Component {
 					</Navbar>
 				</div>
 				<div id="content">
-					<Navbar id="overview-navbar" bg="light" variant="light">
-						<Nav variant="secondary">
-							<Nav.Item>
-								Overview
-							</Nav.Item>
-							<Nav.Item>
-								Version: 1.X.0
-							</Nav.Item>
-							<Nav.Item>
-								Commit: abc1234
-							</Nav.Item>
-
-						</Nav>
-					</Navbar>
+					<DashboardHeaderContainer />
 					<OverviewDashboard />
 				</div>
 			</div>
