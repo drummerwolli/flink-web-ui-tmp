@@ -2,37 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Badge from "react-bootstrap/lib/Badge";
 import moment from 'moment'
-
-function convertSecondsToString(milliSeconds) {
-	var totalNumberOfSeconds = milliSeconds / 1000;
-	var days = parseInt(totalNumberOfSeconds / (3600 * 24));
-	var hours = parseInt(totalNumberOfSeconds / 3600);
-	var minutes = parseInt((totalNumberOfSeconds - (hours * 3600)) / 60);
-	var seconds = Math.floor((totalNumberOfSeconds - ((hours * 3600) + (minutes * 60))));
-	var result = days > 0 ? days +'d ' + (hours < 10 ? "0" + hours : hours) + "h" : hours >= 1 ? (hours < 10 ? "0" + hours : hours) + "h " + (minutes < 10 ? "0" + minutes : minutes) + "m" : (minutes < 10 ? "0" + minutes : minutes) + "m " + (seconds < 10 ? "0" + seconds : seconds) + 's';
-	return result;
-}
-
-function getBackgroundColorFromStatus(status) {
-	switch (status) {
-		case 'FINISHED':
-			return 'success'
-		case 'CANCELED':
-			return 'secondary'
-		case 'FAILED':
-			return 'danger'
-		default:
-			return 'primary'
-	}
-
-}
+import {convertMilliSecondsToHumanReadable, getBackgroundColorFromStatus} from "../utils";
 
 
 const JobTableEntry = ({ job, endTimeExisting }) => (
 	<tr>
 		<td>{job["start-time"] > 0 ? moment.unix(job["start-time"]/1000).format() : ""}</td>
 		{endTimeExisting ? <td>{job["end-time"] > 0 ? moment.unix(job["end-time"]/1000).format() : ""}</td> : null}
-		<td>{convertSecondsToString(job.duration)}</td>
+		<td>{convertMilliSecondsToHumanReadable(job.duration)}</td>
 		<td>{job.name}</td>
 		<td>{job.jid}</td>
 		<td>

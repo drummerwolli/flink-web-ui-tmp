@@ -65,7 +65,6 @@ function clusterInfo(state = {
 				isFetching: true
 			})
 		case RECEIVE_CLUSTER_INFO:
-			console.log(action.clusterInfo)
 			return Object.assign({}, state, {
 				isFetching: false,
 				taskmanagers: 0,
