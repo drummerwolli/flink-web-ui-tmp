@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Badge from "react-bootstrap/lib/Badge";
 import moment from 'moment'
 
-function convertSecondsToString(seconds) {
-	var totalNumberOfSeconds = seconds / 1000;
+function convertSecondsToString(milliSeconds) {
+	var totalNumberOfSeconds = milliSeconds / 1000;
 	var days = parseInt(totalNumberOfSeconds / (3600 * 24));
 	var hours = parseInt(totalNumberOfSeconds / 3600);
 	var minutes = parseInt((totalNumberOfSeconds - (hours * 3600)) / 60);

@@ -1,9 +1,5 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Col from "react-bootstrap/lib/Col";
-import Card from "react-bootstrap/lib/Card";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Row from "react-bootstrap/lib/Row";
 import Nav from "react-bootstrap/lib/Nav";
 import Navbar from "react-bootstrap/lib/Navbar";
 
