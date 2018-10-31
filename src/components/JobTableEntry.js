@@ -28,10 +28,10 @@ function getBackgroundColorFromStatus(status) {
 }
 
 
-const JobTableEntry = ({ job }) => (
+const JobTableEntry = ({ job, endTimeExisting }) => (
 	<tr>
 		<td>{job["start-time"] > 0 ? moment.unix(job["start-time"]/1000).format() : ""}</td>
-		<td>{job["end-time"] > 0 ? moment.unix(job["end-time"]/1000).format() : ""}</td>
+		{endTimeExisting ? <td>{job["end-time"] > 0 ? moment.unix(job["end-time"]/1000).format() : ""}</td> : null}
 		<td>{convertSecondsToString(job.duration)}</td>
 		<td>{job.name}</td>
 		<td>{job.jid}</td>

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Table from 'react-bootstrap/lib/Table';
 import JobTableEntry from "./JobTableEntry";
 
-const JobTable = ({ jobs }) => (
+const JobTable = ({ jobs, endTimeExisting }) => (
 	<Table bordered hover>
 		<thead>
 		<tr>
 			<th>Start Time</th>
-			<th>End Time</th>
+			{endTimeExisting ? <th>End Time</th> : null}
 			<th>Duration</th>
 			<th>Job Name</th>
 			<th>Job ID</th>
@@ -18,7 +18,7 @@ const JobTable = ({ jobs }) => (
 		</thead>
 		<tbody>
 		{jobs.items.length > 0 ? jobs.items.map((job, index) => (
-			<JobTableEntry key={index} job={job} />
+			<JobTableEntry key={index} job={job} endTimeExisting={endTimeExisting}/>
 		)) : undefined}
 		</tbody>
 	</Table>

@@ -10,7 +10,18 @@ import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { Provider } from 'react-redux'
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faTachometerAlt, faTasks, faCheckCircle, faSitemap, faServer, faUpload} from '@fortawesome/free-solid-svg-icons'
+import {
+	faTachometerAlt,
+	faTasks,
+	faCheckCircle,
+	faSitemap,
+	faServer,
+	faUpload,
+	faSignInAlt,
+	faMemory,
+	faHandshake,
+	faBatteryThreeQuarters
+} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faTachometerAlt)
 library.add(faTasks)
@@ -18,6 +29,10 @@ library.add(faCheckCircle)
 library.add(faSitemap)
 library.add(faServer)
 library.add(faUpload)
+library.add(faSignInAlt)
+library.add(faMemory)
+library.add(faHandshake)
+library.add(faBatteryThreeQuarters)
 
 const loggerMiddleware = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

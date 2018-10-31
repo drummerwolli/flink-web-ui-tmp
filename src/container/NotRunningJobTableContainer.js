@@ -4,7 +4,8 @@ import JobTable from '../components/JobTable';
 
 const mapStateToProps = state => {
 	return {
-		jobs: {items: state.jobs.items.filter(j => j.state !== 'RUNNING')}
+		jobs: {items: state.jobs.items.filter(j => j.state !== 'RUNNING')},
+		endTimeExisting: true,
 	}
 };
 

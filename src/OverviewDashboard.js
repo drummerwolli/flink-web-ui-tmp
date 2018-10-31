@@ -5,9 +5,7 @@ import Card from 'react-bootstrap/lib/Card';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
-import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faServer, faTasks, faSignInAlt, faMemory, faHandshake, faBatteryThreeQuarters} from '@fortawesome/free-solid-svg-icons'
 import RunningJobTableContainer from "./container/RunningJobTableContainer";
 import NotRunningJobTableContainer from "./container/NotRunningJobTableContainer";
 import JobOverviewContainer from "./container/JobOverviewContainer";
@@ -15,12 +13,6 @@ import TaskManagerOverviewContainer from "./container/TaskManagerOverviewContain
 import TaskManagerIconOverviewContainer from "./container/TaskManagerIconOverviewContainer";
 import ClusterMetricsOverviewContainer from "./container/ClusterMetricsOverviewContainer";
 
-library.add(faServer)
-library.add(faTasks)
-library.add(faSignInAlt)
-library.add(faMemory)
-library.add(faHandshake)
-library.add(faBatteryThreeQuarters)
 
 class OverviewDashboard extends Component {
 	render() {
